@@ -13,7 +13,7 @@
   --removed-text: #9b2c2c;
   --focus-color: #b04c5c;
   --header-bg: #b04c5c;
-  --footer-bg: #faf0f3;
+  --footer-bg: #6f2c3f;
   --card-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
@@ -86,7 +86,7 @@ body {
   background-color: var(--footer-bg);
   padding: 1.5rem;
   text-align: center;
-  color: var(--text-primary);
+  color: #ffffff;
   border-top: 1px solid var(--border-color);
 }
 
@@ -228,4 +228,137 @@ textarea::placeholder {
   textarea, .diff-view {
     font-size: 16px;
   }
+}
+
+.actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.save-button,
+.load-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.save-button {
+  background-color: var(--primary-color, #5d9b73);
+  color: white;
+}
+
+.save-button:hover {
+  background-color: var(--primary-color-dark, #2b6940);
+}
+
+.save-button:disabled {
+  background-color: #4d4d4d;
+  cursor: not-allowed;
+}
+
+.load-button {
+  background-color: var(--secondary-color, #5a77a8);
+  color: white;
+}
+
+.load-button:hover {
+  background-color: var(--secondary-color-dark, #2c436b);
+}
+
+.load-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  background-color: #ffebee;
+  color: #c62828;
+  border-radius: 4px;
+  border: 1px solid #ef9a9a;
+}
+
+.saved-comparisons {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.saved-comparisons h3 {
+  margin-top: 0;
+  color: #333;
+}
+
+.saved-comparisons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.saved-comparison-item {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.saved-comparison-item:hover {
+  background-color: #e9ecef;
+}
+
+.saved-comparison-item:last-child {
+  border-bottom: none;
+}
+
+.comparison-date {
+  flex: 1;
+}
+
+.delete-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1.5rem;
+  padding: 0 0.5rem;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.delete-button:hover {
+  opacity: 1;
+}
+
+.delete-button:focus {
+  outline: none;
+  opacity: 1;
+}
+
+.export-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--primary-color, #5d9b73);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.export-button:hover {
+  background-color: var(--primary-color-dark, #2b6940);
+}
+
+.export-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(93, 155, 115, 0.4);
 }

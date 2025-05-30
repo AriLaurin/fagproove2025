@@ -2,6 +2,15 @@ import { serve } from "bun";
 import index from "./index.html";
 
 const server = serve({
+  port: 3000,
+  fetch(req) {
+    return new Response(index, {
+      headers: {
+        "Content-Type": "text/html",
+      },
+    });
+  },
+
   routes: {
     // Serve index.html for all unmatched routes.
     "/*": index,
