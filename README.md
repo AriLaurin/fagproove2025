@@ -1,6 +1,30 @@
 # Compare Texts
 
-A web-app project for my final exam 2025
+[![React](https://img.shields.io/badge/React-18.2.0-blue)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue)](https://www.typescriptlang.org/)
+[![Bun](https://img.shields.io/badge/Bun-1.0.0-orange)](https://bun.sh/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-6.0-green)](https://www.mongodb.com/)
+
+Built as a final exam project for 2025, this tool helps users identify, visualize, and manage text comparisons with features like difference highlighting, PDF export, and secure storage.
+
+## Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [How It Works](#how-it-works)
+- [API Documentation](#api-documentation)
+- [Development](#development)
+- [Security](#security)
+
+## Features
+
+- ✨ Compare two text inputs with real-time difference visualization
+- 🎨 Highlight added (green) and removed (red) text
+- 💾 Save and load comparisons from database
+- 📄 Export comparisons to PDF
+- 🔒 Secure data storage with encryption
+- 📱 Responsive design for all devices
 
 ## Tech Stack
 
@@ -18,17 +42,6 @@ A web-app project for my final exam 2025
 - **MongoDB**: NoSQL database for storing text comparisons
 - **Mongoose**: MongoDB object modeling tool
 - **CryptoJS**: For data encryption
-
-## Features
-
-- Compare two text inputs and visualize differences
-- Highlight added and removed text
-- Save comparisons to database
-- Load saved comparisons
-- Delete saved comparisons
-- Export comparisons to PDF
-- Responsive design
-- Secure data storage with encryption
 
 ## Project Structure
 
@@ -48,6 +61,29 @@ src/
 └── TextComparator.tsx  # Main application component
 ```
 
+## Getting Started
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   bun install
+   ```
+3. Create a `.env` file in the root directory:
+   ```
+   MONGODB_URI=your_mongodb_connection_string
+   PORT=5000
+   ENCRYPTION_KEY=your_encryption_key
+   ```
+4. Start the backend server:
+   ```bash
+   bun run server
+   ```
+5. Start the frontend development server:
+   ```bash
+   bun dev
+   ```
+6. Open http://localhost:3000 in your browser
+
 ## How It Works
 
 ### Text Comparison
@@ -58,70 +94,42 @@ src/
    - Removed text: Red background
    - Unchanged text: Normal styling
 
-### Saving Comparisons
-1. Users can save their comparisons to the database
-2. Each comparison stores:
-   - Original text
-   - Compared text
-   - Creation timestamp
-   - Encrypted data for security
-
-### Managing Saved Comparisons
-1. Users can view all saved comparisons
-2. Click on a saved comparison to load it into the input fields
+### Managing Comparisons
+1. Save comparisons to the database with encryption
+2. View and load saved comparisons
 3. Delete unwanted comparisons
 4. Export comparisons to PDF
 
-## API Endpoints
+## API Documentation
 
-- `GET /api/comparisons`: Get all saved comparisons
-- `POST /api/comparisons`: Create a new comparison
-- `DELETE /api/comparisons/:id`: Delete a comparison
+### Endpoints
 
-## Getting Started
-
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   bun install
-   ```
-3. Start the backend server:
-   ```bash
-   bun run server
-   ```
-4. Start the frontend development server:
-   ```bash
-   bun dev
-   ```
-5. Open http://localhost:3000 in your browser
-
-## Environment Variables
-
-Create a `.env` file in the root directory with:
-```
-MONGODB_URI=your_mongodb_connection_string
-PORT=5000
-ENCRYPTION_KEY=your_encryption_key
-```
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET    | `/api/comparisons` | Get all saved comparisons |
+| POST   | `/api/comparisons` | Create a new comparison |
+| DELETE | `/api/comparisons/:id` | Delete a comparison |
 
 ## Development
 
 The project uses Bun as the JavaScript runtime and package manager. Key development commands:
 
-- `bun dev`: Start development server with hot reloading
-- `bun run server`: Start backend server
-- `bun run build`: Build for production
-- `bun run start`: Start production server
+| Command | Description |
+|---------|-------------|
+| `bun dev` | Start development server with hot reloading |
+| `bun run server` | Start backend server |
+| `bun run build` | Build for production |
+| `bun run start` | Start production server |
 
 ## Security
 
-- All stored text comparisons are encrypted using CryptoJS
-- Environment variables are used for sensitive configuration
-- API endpoints are protected with proper error handling
-- XSS Prevention:
+- 🔐 All stored text comparisons are encrypted using CryptoJS
+- 🔑 Environment variables for sensitive configuration
+- 🛡️ Protected API endpoints with proper error handling
+- 🚫 XSS Prevention:
   - Input sanitization for all text fields
   - HTML tag stripping
-  - Removal of dangerous JavaScript protocols (javascript:, data:, vbscript:)
-  - Removal of event handlers (on* attributes)
-  - Special character escaping (&, <, >, ", ', /)
-  - Real-time sanitization as users type
+  - Removal of dangerous JavaScript protocols
+  - Removal of event handlers
+  - Special character escaping
+  - Real-time sanitization
